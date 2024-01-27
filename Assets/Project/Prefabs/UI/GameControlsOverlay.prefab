@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 539265396031940666}
   - component: {fileID: 5183033305044358567}
   - component: {fileID: 5248879044912803573}
+  - component: {fileID: 8561197415423262655}
   m_Layer: 5
   m_Name: GameControlsOverlay
   m_TagString: Untagged
@@ -627,6 +628,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd193674846395e4f9fad08b6ed8f9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightButton: {fileID: 4885457496733012149}
+  _leftButton: {fileID: 6312457483943848163}
+  _upButton: {fileID: 1791547960570889375}
+  _aButton: {fileID: 7176909975578906007}
+  _bButton: {fileID: 820524794713571943}
+--- !u!114 &8561197415423262655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556770904330479159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf551fc03d007084e876330ff23cfd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8268648715436080306

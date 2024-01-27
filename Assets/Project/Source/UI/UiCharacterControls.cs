@@ -1,17 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiCharacterControls : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Directional Buttons")]
+    [SerializeField]
+    private Button _rightButton;
+    [SerializeField]
+    private Button _leftButton;
+    [SerializeField]
+    private Button _upButton;
+    [Header("Action Buttons")]
+    [SerializeField]
+    private Button _aButton;
+    [SerializeField]
+    private Button _bButton;
+
+    protected void Awake()
     {
-        
+        AssignButtonsToFunctions();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AssignButtonsToFunctions()
     {
         
     }
