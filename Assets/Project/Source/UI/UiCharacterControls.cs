@@ -18,6 +18,7 @@ public class UiCharacterControls : MonoBehaviour
     public Action OnUpPressed;
     public Action OnAPressed;
     public Action OnBPressed;
+    public Action<float> HorizontalAxisInput;
 
     protected void OnEnable()
     {
@@ -31,8 +32,7 @@ public class UiCharacterControls : MonoBehaviour
 
     private void AssignButtonsToFunctions()
     {
-        AssignDirectionalButtons();
-
+        AssignDirectionalValue();
         _upButton.onClick.AddListener(() => OnUpPressed?.Invoke());
         _aButton.onClick.AddListener(() => OnAPressed?.Invoke());
         _bButton.onClick.AddListener(() => OnBPressed?.Invoke());
@@ -43,9 +43,16 @@ public class UiCharacterControls : MonoBehaviour
         _upButton.onClick.RemoveAllListeners();
         _aButton.onClick.RemoveAllListeners();
         _bButton.onClick.RemoveAllListeners();
+        _directionalButtonsBufferComponent.DirectionalEventInput -= DirectionalInput;
     }
 
-    private void AssignDirectionalButtons() // Directionals will need another script.
+    private void AssignDirectionalValue()
     {
+        _directionalButtonsBufferComponent.DirectionalEventInput += DirectionalInput;
+    }
+
+    private void DirectionalInput(float direction)
+    {
+        HorizontalAxisInput?.Invoke(direction);
     }
 }

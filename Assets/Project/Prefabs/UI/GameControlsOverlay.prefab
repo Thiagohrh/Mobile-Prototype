@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 7163416677210446266}
   - component: {fileID: 158627596824754595}
   - component: {fileID: 6312457483943848163}
+  - component: {fileID: 439613547979228832}
+  - component: {fileID: 3370131900468948786}
+  - component: {fileID: 7938507432817390831}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -120,6 +123,45 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &439613547979228832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525656867262516625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &3370131900468948786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525656867262516625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb7857aea2577842bd0c31dd408e7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &7938507432817390831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525656867262516625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf88a49753de0cc4399052c806933433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MyDirectionalIdentifier>k__BackingField: -1
 --- !u!1 &1033847426554655931
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cffff9908faf1d946aa65421c092144c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rightEventTriggerButton: {fileID: 1733663025600523717}
+  _leftEventTriggerButton: {fileID: 3370131900468948786}
 --- !u!1 &2910507004934667558
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +465,8 @@ GameObject:
   - component: {fileID: 4745414521242317349}
   - component: {fileID: 4885457496733012149}
   - component: {fileID: 7137781085335785121}
+  - component: {fileID: 1733663025600523717}
+  - component: {fileID: 4867250359873782811}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -541,15 +587,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
+  m_Delegates: []
+--- !u!114 &1733663025600523717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399914567942594794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb7857aea2577842bd0c31dd408e7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &4867250359873782811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399914567942594794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf88a49753de0cc4399052c806933433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MyDirectionalIdentifier>k__BackingField: 1
 --- !u!1 &4556770904330479159
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,8 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd193674846395e4f9fad08b6ed8f9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rightButton: {fileID: 4885457496733012149}
-  _leftButton: {fileID: 6312457483943848163}
+  _directionalButtonsBufferComponent: {fileID: 6896440694841440080}
   _upButton: {fileID: 1791547960570889375}
   _aButton: {fileID: 7176909975578906007}
   _bButton: {fileID: 820524794713571943}
