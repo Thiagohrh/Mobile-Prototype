@@ -37,15 +37,15 @@ public class DirectionalButtonsBuffer : MonoBehaviour
         HandleDirectionalValue(DirectionalInputEnum.NEUTRAL);
     }
 
-    private void HandleDirectionalValue(DirectionalInputEnum currentDirectionalInput) // Ok so we have a problem here....hmmm
+    private void HandleDirectionalValue(DirectionalInputEnum currentDirectionalInput)
     {
         _currentDirectionalInput = (int) currentDirectionalInput;
     }
 
     private void AssignEvents()
     {
-        _rightEventTriggerButton.OnClickDown += DirectionalEventHandle; // Yeah I do not like that...
-        _leftEventTriggerButton.OnClickDown += DirectionalEventHandle; // Yeah I do not like that...
+        _rightEventTriggerButton.OnClickDown += DirectionalEventHandle;
+        _leftEventTriggerButton.OnClickDown += DirectionalEventHandle;
 
         _rightEventTriggerButton.OnClickUp += NeutralEventHandle;
         _leftEventTriggerButton.OnClickUp += NeutralEventHandle;
@@ -53,8 +53,8 @@ public class DirectionalButtonsBuffer : MonoBehaviour
 
     private void DisableEvents()
     {
-        _rightEventTriggerButton.OnClickDown -= DirectionalEventHandle; // Yeah I do not like that...
-        _leftEventTriggerButton.OnClickDown -= DirectionalEventHandle; // Yeah I do not like that...
+        _rightEventTriggerButton.OnClickDown -= DirectionalEventHandle;
+        _leftEventTriggerButton.OnClickDown -= DirectionalEventHandle;
 
         _rightEventTriggerButton.OnClickUp -= NeutralEventHandle;
         _leftEventTriggerButton.OnClickUp -= NeutralEventHandle;

@@ -15,10 +15,10 @@ public class UiCharacterControls : MonoBehaviour
     [SerializeField]
     private Button _bButton;
 
-    public Action OnUpPressed;
-    public Action OnAPressed;
-    public Action OnBPressed;
-    public Action<float> HorizontalAxisInput;
+    public event Action OnUpPressed;
+    public event Action OnAPressed;
+    public event Action OnBPressed;
+    public event Action<float> HorizontalAxisInput;
 
     protected void OnEnable()
     {
