@@ -1,10 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterMotionRegistry))]
 public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] ObjectPooler _objectPooler;
+    private CharacterMotionRegistry _myMotionRegistryComponent;
+
+    protected void Start()
+    {
+        _myMotionRegistryComponent = transform.GetComponent<CharacterMotionRegistry>();
+    }
 
     public void ShootBullet()
     {
@@ -17,6 +22,6 @@ public class BulletSpawner : MonoBehaviour
 
     private void HandleNewBulletSetups(Bullet bulletComponent)
     {
-        bulletComponent.BulletSetups(1.0f); // Ok so...how do I do this...lesseee...
+        bulletComponent.BulletSetups(_myMotionRegistryComponent.LastDirection);
     }
 }
