@@ -11,11 +11,15 @@ public class CharacterMotionRegistry : MonoBehaviour
         LastDirection = 1.0f;
     }
     
-    protected void FixedUpdate()
+    protected void Update()
     {
         if (_myRigidbody2D.velocity.x > 0 || _myRigidbody2D.velocity.x < 0 )
         {
             LastDirection = _myRigidbody2D.velocity.normalized.x;
+        }
+        if (LastDirection == 0)
+        {
+            LastDirection = 1;
         }
     }
 }

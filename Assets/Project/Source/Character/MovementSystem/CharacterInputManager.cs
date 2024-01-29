@@ -3,10 +3,12 @@ using UnityEngine;
 public class CharacterInputManager : MonoBehaviour, IControlableCharacter
 {
     private CharacterMovementComponent _myCharacterMovementComponent;
+    private BulletSpawner _myBulletSpawnerComponent;
 
     private void OnEnable()
     {
         _myCharacterMovementComponent = transform.GetComponent<CharacterMovementComponent>();
+        _myBulletSpawnerComponent = transform.GetComponent<BulletSpawner>();
     }
 
     public void Jump()
@@ -19,9 +21,9 @@ public class CharacterInputManager : MonoBehaviour, IControlableCharacter
         _myCharacterMovementComponent.Move(direction);
     }
 
-    public void Shoot() // Will check this out later.
+    public void Shoot()
     {
-        Debug.Log("<color=cyan> Shoot! </color>");
+        _myBulletSpawnerComponent.ShootBullet();
     }
 
     public void Strike()
