@@ -15,11 +15,11 @@ public class CharacterMotionRegistry : MonoBehaviour
     {
         if (_myRigidbody2D.velocity.x > 0 || _myRigidbody2D.velocity.x < 0 )
         {
-            LastDirection = _myRigidbody2D.velocity.normalized.x;
-        }
-        if (LastDirection == 0)
-        {
-            LastDirection = 1;
+            float direction = _myRigidbody2D.velocity.normalized.x;
+            if (direction > 0 || direction < 0)
+            {
+                LastDirection = direction;
+            }
         }
     }
 }
