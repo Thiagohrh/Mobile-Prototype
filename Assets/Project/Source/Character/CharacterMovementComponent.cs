@@ -3,10 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterMovementComponent : MonoBehaviour
 {
-    private const int JumpForce = 2500;
+    private const int JumpForce = 4000;
+    private const float Acceleration = 1f;
+    private const float MaxSpeed = 20.0f;
     private Rigidbody2D _myRigidbody2D;
     private CharacterGroundDetection _myGroundDetectionComponent;
-    private float _moveSpeed = 10.0f;
 
     private void OnEnable()
     {
@@ -24,8 +25,13 @@ public class CharacterMovementComponent : MonoBehaviour
 
     public void Move(float direction)
     {
-        // Ok so...how to move to the sides here... can't add force to infinity, gotta clamp it somehow...use acceleration value as well.
-        float smoothDirection = Mathf.SmoothDamp(_myRigidbody2D.velocity.x, direction, ref _moveSpeed, 0.5f);
-        _myRigidbody2D.velocity = new Vector2(direction * _moveSpeed, _myRigidbody2D.velocity.y);
+        float xTargetVelocity = (direction * MaxSpeed);
+        float xForce = (xTargetVelocity - _myRigidbody2D.velocity.x) * Acceleration;
+        if (xForce > MaxSpeed)
+        {
+            xForce = Mathf.Clamp(xForce, -MaxSpeed, MaxSpeed);
+        }
+
+        _myRigidbody2D.AddForce(new Vector2(xForce, 0.0f));
     }
 }
