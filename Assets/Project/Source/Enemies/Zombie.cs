@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ZombieHealthComponent))]
 public class Zombie : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private ZombieHealthComponent _myZombieHealthComponent;
+    protected void Start()
     {
-        
+        _myZombieHealthComponent = transform.GetComponent<ZombieHealthComponent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeHit(int value)
     {
-        
+        _myZombieHealthComponent.ApplyDamageValue(value);
     }
 }
