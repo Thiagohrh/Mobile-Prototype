@@ -33,7 +33,7 @@ public class UiCharacterControls : MonoBehaviour
     private void AssignButtonsToFunctions()
     {
         AssignDirectionalValue();
-        _upButton.onClick.AddListener(() => OnUpPressed?.Invoke());
+        _upButton.onClick.AddListener(() => OnUpPressed?.Invoke()); // Rework these. They're only activating on the button being released. Use the other thing.
         _aButton.onClick.AddListener(() => OnAPressed?.Invoke());
         _bButton.onClick.AddListener(() => OnBPressed?.Invoke());
     }
