@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UiCharacterControls : MonoBehaviour
@@ -7,13 +8,13 @@ public class UiCharacterControls : MonoBehaviour
     [Header("Directional Buttons")]
     [SerializeField]
     private DirectionalButtonsBuffer _directionalButtonsBufferComponent;
-    [SerializeField]
-    private Button _upButton;
     [Header("Action Buttons")]
     [SerializeField]
-    private Button _aButton;
+    private EventTriggerButton _upButton;
     [SerializeField]
-    private Button _bButton;
+    private EventTriggerButton _aButton;
+    [SerializeField]
+    private EventTriggerButton _bButton;
 
     public event Action OnUpPressed;
     public event Action OnAPressed;
@@ -22,7 +23,7 @@ public class UiCharacterControls : MonoBehaviour
 
     protected void OnEnable()
     {
-        AssignButtonsToFunctions();
+        AssignButtonListeners();
     }
 
     protected void OnDisable()
@@ -30,19 +31,34 @@ public class UiCharacterControls : MonoBehaviour
         RemoveListeners();
     }
 
-    private void AssignButtonsToFunctions()
+    private void AssignButtonListeners()
     {
         AssignDirectionalValue();
-        _upButton.onClick.AddListener(() => OnUpPressed?.Invoke()); // Rework these. They're only activating on the button being released. Use the other thing.
-        _aButton.onClick.AddListener(() => OnAPressed?.Invoke());
-        _bButton.onClick.AddListener(() => OnBPressed?.Invoke());
+        _upButton.OnClickDown += OnUpButtonClick;
+        _aButton.OnClickDown += OnAButtonClick;
+        _bButton.OnClickDown += OnBButtonClick;
+    }
+
+    private void OnUpButtonClick()
+    {
+        OnUpPressed?.Invoke();
+    }
+
+    private void OnAButtonClick()
+    {
+        OnAPressed?.Invoke();
+    }
+
+    private void OnBButtonClick()
+    {
+        OnBPressed?.Invoke();
     }
 
     private void RemoveListeners()
     {
-        _upButton.onClick.RemoveAllListeners();
-        _aButton.onClick.RemoveAllListeners();
-        _bButton.onClick.RemoveAllListeners();
+        _upButton.OnClickDown -= OnUpButtonClick;
+        _aButton.OnClickDown -= OnAButtonClick;
+        _bButton.OnClickDown -= OnBButtonClick;
         _directionalButtonsBufferComponent.DirectionalEventInput -= DirectionalInput;
     }
 

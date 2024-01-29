@@ -4,9 +4,9 @@ using UnityEngine;
 public class DirectionalButtonsBuffer : MonoBehaviour
 {
     [SerializeField]
-    private EventTriggerButton _rightEventTriggerButton;
+    private DirectionalEventTriggerButton _rightEventTriggerButton;
     [SerializeField]
-    private EventTriggerButton _leftEventTriggerButton;
+    private DirectionalEventTriggerButton _leftEventTriggerButton;
 
     public event Action<float> DirectionalEventInput;
 
