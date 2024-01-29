@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class CharacterInputManager : MonoBehaviour, IControlableCharacter
 {
+    private CharacterMovementComponent _myCharacterMovementComponent;
+
+    private void OnEnable()
+    {
+        _myCharacterMovementComponent = transform.GetComponent<CharacterMovementComponent>();
+    }
+
     public void Jump()
     {
-        Debug.Log("<color=cyan> Jump! </color>");
+        _myCharacterMovementComponent.Jump();
     }
 
     public void Move(float direction)
     {
-        Debug.Log("<color=blue> Move! </color>");
+        _myCharacterMovementComponent.Move(direction);
     }
 
-    public void Shoot()
+    public void Shoot() // Will check this out later.
     {
         Debug.Log("<color=cyan> Shoot! </color>");
     }
